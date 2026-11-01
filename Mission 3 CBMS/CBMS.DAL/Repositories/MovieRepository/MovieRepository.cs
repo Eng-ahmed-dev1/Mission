@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace CBMS.DAL.Repositories
 {
@@ -20,7 +16,9 @@ namespace CBMS.DAL.Repositories
 
         public async Task<Movie?> GetById(int id)
         {
-            return await _context.Movies.FindAsync(id);
+            return await _context.Movies
+                .Include(m => m.Hall)
+                .FirstOrDefaultAsync(m => m.Id == id);
         }
 
         public async Task<int> SaveChangesAsync()

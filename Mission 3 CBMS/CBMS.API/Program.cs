@@ -1,3 +1,10 @@
+using CBMS.BLL.Services.CustomerService;
+using CBMS.BLL.Services.HallService;
+using CBMS.BLL.Services.MovieService;
+using CBMS.BLL.Services.TicketService;
+using CBMS.DAL;
+using CBMS.DAL.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace CBMS.API
 {
@@ -7,16 +14,25 @@ namespace CBMS.API
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
-
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddDbContext<ApplicationContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("Conn")));
+
+            builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+            builder.Services.AddScoped<ITicketRepositry, TicketRepository>();
+            builder.Services.AddScoped<IMovieRepository, MovieRepository>();
+            builder.Services.AddScoped<IHallRepository, HallRepository>();
+
+            builder.Services.AddScoped<ICustomerService, CustomerService>();
+            builder.Services.AddScoped<ITicketService, TicketService>();
+            builder.Services.AddScoped<IMovieService, MovieService>();
+            builder.Services.AddScoped<IHallService, HallService>();
+
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
@@ -26,7 +42,6 @@ namespace CBMS.API
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 

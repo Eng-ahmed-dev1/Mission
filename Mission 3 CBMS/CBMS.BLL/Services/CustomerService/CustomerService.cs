@@ -141,7 +141,7 @@ namespace CBMS.BLL.Services.CustomerService
 
             var customer = await _customerRepository.GetById(id);
             if (customer is null)
-                throw new bllException("This customer is not found");
+                return null;
 
             customer.Name = dto.Name;
             customer.Email = dto.Email;

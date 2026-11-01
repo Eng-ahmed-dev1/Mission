@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace CBMS.DAL.Repositories
 {
@@ -19,15 +19,22 @@ namespace CBMS.DAL.Repositories
             _context.Customers.Remove(customer);
         }
 
-
         public async Task<IEnumerable<Customer>> GetAllAsync()
         {
-            return await _context.Customers.ToListAsync();
+            return await _context.Customers
+                .Include(x => x.Ticket)
+                .Include(x => x.Movies)
+                    .ThenInclude(m => m.Hall)
+                .ToListAsync();
         }
 
         public async Task<Customer?> GetById(int id)
         {
-            return await _context.Customers.FindAsync(id);
+            return await _context.Customers
+                .Include(x => x.Ticket)
+                .Include(x => x.Movies)
+                    .ThenInclude(m => m.Hall)
+                .FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public void Update(Customer customer)
