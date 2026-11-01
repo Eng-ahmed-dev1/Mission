@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36518.9 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CBMS.API", "CBMS.API\CBMS.API.csproj", "{4098BC46-EBE4-4958-8E83-2720438F8A98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CBMS.BLL", "CBMS.BLL\CBMS.BLL.csproj", "{86F0631B-06D4-4A9F-A59F-034A2C4DAE48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CBMS.DAL", "CBMS.DAL\CBMS.DAL.csproj", "{08D8FB55-536A-47FE-8240-0E51F36E5CE3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4098BC46-EBE4-4958-8E83-2720438F8A98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4098BC46-EBE4-4958-8E83-2720438F8A98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4098BC46-EBE4-4958-8E83-2720438F8A98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4098BC46-EBE4-4958-8E83-2720438F8A98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86F0631B-06D4-4A9F-A59F-034A2C4DAE48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86F0631B-06D4-4A9F-A59F-034A2C4DAE48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86F0631B-06D4-4A9F-A59F-034A2C4DAE48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86F0631B-06D4-4A9F-A59F-034A2C4DAE48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08D8FB55-536A-47FE-8240-0E51F36E5CE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08D8FB55-536A-47FE-8240-0E51F36E5CE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08D8FB55-536A-47FE-8240-0E51F36E5CE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08D8FB55-536A-47FE-8240-0E51F36E5CE3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E0C47F55-7BB7-43DD-A403-F79FFB7CC5EF}
+	EndGlobalSection
+EndGlobal
