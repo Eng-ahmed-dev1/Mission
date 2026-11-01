@@ -83,6 +83,31 @@ namespace CBMS.BLL.Services.CustomerService
             };
         }
 
+        public async Task<IEnumerable<CustomerReadDto>> GetAllAsync()
+        {
+            var customers = await _customerRepository.GetAllAsync();
+            return customers.Select(customer => new CustomerReadDto
+            {
+                Id = customer.Id,
+                Name = customer.Name,
+                Email = customer.Email,
+                Ticket = customer.Ticket != null ? new TicketReadDto
+                {
+                    Id = customer.Ticket.Id,
+                    SeatNumber = customer.Ticket.SeatNumber,
+                    Price = customer.Ticket.Price,
+                    ShowTime = customer.Ticket.ShowTime
+                } : null,
+                Movies = customer.Movies.Select(m => new MovieReadDto
+                {
+                    Id = m.Id,
+                    Title = m.Title,
+                    Duration = m.Duration,
+                    HallName = m.Hall?.Name ?? string.Empty
+                }).ToList()
+            });
+        }
+
         public async Task<CustomerReadDto?> GetByIdAsync(int id)
         {
             var customer = await _customerRepository.GetById(id);

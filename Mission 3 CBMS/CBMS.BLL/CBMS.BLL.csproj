@@ -7,12 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Service\**" />
+    <EmbeddedResource Remove="Service\**" />
+    <None Remove="Service\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\CBMS.DAL\CBMS.DAL.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Exceptions\" />
-    <Folder Include="Service\" />
   </ItemGroup>
 
 </Project>
